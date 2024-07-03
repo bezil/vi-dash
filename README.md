@@ -7,31 +7,31 @@ Things you may want to cover:
 
 * Ruby version - 3.3.3
 
-"""
+```
 eval "$(rbenv init -)"
 ruby -v
 
 chmod +x start-ruby.sh
 run ./start-ruby.sh
-"""
+```
 
 * System dependencies
-"""
+```
 bundle add vite_rails
 bundle exec vite install
 npm i vite-plugin-full-reload @vitejs/plugin-vue
 
 rails s
 bin/vite dev
-"""
+```
 
 * Configuration
 
-* Configure Tailwind
+## Configure Tailwind
 npm i -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 
-"""
+```
 module.exports = {
   content: [
     './public/*.html',
@@ -44,7 +44,7 @@ module.exports = {
   },
   plugins: [],
 }
-"""
+```
 
 Add the following lines to app/frontend/entrypoints/application.css:
 
@@ -54,8 +54,8 @@ Add the following lines to app/frontend/entrypoints/application.css:
 
 Also Don’t forget to include the vite_stylesheet_tag in the app/views/layouts/application.html.erb file:
 
-* Configure Hot Reload
-"""
+## Configure Hot Reload
+```
 import FullReload from 'vite-plugin-full-reload'
 import vue from "@vitejs/plugin-vue"
 
@@ -66,7 +66,7 @@ export default defineConfig({
     vue(),
   ],
 })
-"""
+```
 * Database creation
 Postgres
 change postgres username and password in db config
