@@ -5,7 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version - 3.3.3
+### Ruby version - 3.3.3
 
 ```
 eval "$(rbenv init -)"
@@ -15,7 +15,7 @@ chmod +x start-ruby.sh
 run ./start-ruby.sh
 ```
 
-* System dependencies
+### System dependencies
 ```
 bundle add vite_rails
 bundle exec vite install
@@ -28,8 +28,10 @@ bin/vite dev
 * Configuration
 
 ## Configure Tailwind
+```
 npm i -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
+```
 
 ```
 module.exports = {
@@ -47,11 +49,11 @@ module.exports = {
 ```
 
 Add the following lines to app/frontend/entrypoints/application.css:
-
+```
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-
+```
 Also Don’t forget to include the vite_stylesheet_tag in the app/views/layouts/application.html.erb file:
 
 ## Configure Hot Reload
@@ -67,12 +69,9 @@ export default defineConfig({
   ],
 })
 ```
-* Database creation
-Postgres
-change postgres username and password in db config
 
-psql -U <username>
-database name: vi_dash_development
+## Postgres
+change postgres username and password in db config
 
 * Database initialization
 
@@ -81,5 +80,3 @@ database name: vi_dash_development
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
