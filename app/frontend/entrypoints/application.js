@@ -26,3 +26,24 @@ console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify
 
 // Example: Import a stylesheet in app/frontend/index.css
 // import '~/index.css'
+
+// We need Vue so we can do all the things
+import { createApp } from "vue";
+import { components } from './components';
+
+// Function to mount Vue instances
+function mountVueComponent(selector, component) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(el => {
+      const props = JSON.parse(el.getAttribute('data-props'));
+      if (el && props) {
+        const app = createApp(component, { ...props });
+        app.mount(el);
+      }
+    });
+  }
+
+// Loop through the components array and mount each component
+components.forEach(({ selector, component }) => {
+    mountVueComponent(selector, component);
+});
