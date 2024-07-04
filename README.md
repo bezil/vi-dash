@@ -75,6 +75,26 @@ change postgres username and password in db config
 
 * Database initialization
 
+## Authentication
+
+* Devise
+```
+bundle add devise
+rails generate devise:install
+
+rails g devise User(Model)
+rails db:migrate
+
+rails generate devise:views
+```
+
+Add below for alerts
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+Add below to development.rb or prod
+config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
