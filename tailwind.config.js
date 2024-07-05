@@ -4,10 +4,15 @@ export default {
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/frontend/**/*.{js,jsx,ts,tsx,svelte,vue}',
+    './app/components/**/*.{js,jsx,ts,tsx,svelte,vue}',
     './app/views/**/*.{erb,haml,html,slim}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'regal-blue': '#243c5a',
+      },
+    },
   },
   plugins: [],
 }

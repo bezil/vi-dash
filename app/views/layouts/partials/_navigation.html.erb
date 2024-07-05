@@ -1,11 +1,11 @@
-<div class="w-full flex flex-row-reverse">
+<div class="w-full flex flex-row-reverse pb-2">
   <% if user_signed_in? %>
       <!-- This button logs the user out -->
       <%= button_to destroy_user_session_path, method: :delete do %>
         <div id="buttonComponent" data-props="<%= {
-          active: user_signed_in?,
-          message: 'Log Out'
-        }.to_json %>"
+            active: user_signed_in?,
+            message: 'Log Out'
+          }.to_json %>"
         />
       <% end %>
     <% else %>
