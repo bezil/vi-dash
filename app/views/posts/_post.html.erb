@@ -5,17 +5,27 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
+    <strong class="block font-medium">Description:</strong>
     <%= post.description %>
   </p>
 
   <p class="my-5">
+    <strong class="block font-medium">Created:</strong>
+    <%= time_ago_in_words post.created_at %> ago
+  </p>
+
+  <p class="my-5">
     <strong class="block font-medium mb-1">Cover:</strong>
+    <%= image_tag(post.cover, class: "w-40 h-40 object-cover") if post.cover.attached? %>
     <%= link_to post.cover.filename, post.cover if post.cover.attached? %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Audio:</strong>
+    <div id="musicComponent" class="py-2" data-props="<%= {
+    url: url_for(post.audio),
+      }.to_json %>"
+    />
     <%= link_to post.audio.filename, post.audio if post.audio.attached? %>
   </p>
 

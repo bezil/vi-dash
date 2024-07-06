@@ -35,20 +35,39 @@ console.log('Vite ⚡️ Rails')
 // We need Vue so we can do all the things
 import { createApp } from "vue";
 import { components } from './components';
+import WaveSurfer from 'wavesurfer.js'
 
 // Function to mount Vue instances
 function mountVueComponent(selector, component) {
-    const elements = document.querySelectorAll(selector);
-    elements.forEach(el => {
-      const props = JSON.parse(el.getAttribute('data-props'));
-      if (el && props) {
-        const app = createApp(component, { ...props });
-        app.mount(el);
-      }
-    });
-  }
+  const elements = document.querySelectorAll(selector);
+  elements.forEach(el => {
+    const props = JSON.parse(el.getAttribute('data-props'));
+    if (el && props) {
+      const app = createApp(component, { ...props });
+      app.mount(el);
+    }
+  });
+}
 
 // Loop through the components array and mount each component
 components.forEach(({ selector, component }) => {
     mountVueComponent(selector, component);
 });
+
+function mountMusicComponent(selector) {
+  const element = document.querySelector(selector);
+  if (element) {
+  const props = JSON.parse(element.getAttribute('data-props'));
+
+  WaveSurfer.create({
+    container: selector,
+    waveColor: '#4F4A85',
+    progressColor: '#383351',
+    url: props.url,
+    mediaControls: true,
+  })
+  console.log('🎵 Music loaded')
+  }
+}
+
+mountMusicComponent('#musicComponent');
