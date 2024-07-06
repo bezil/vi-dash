@@ -79,6 +79,6 @@ test:
 #
 production:
   <<: *default
-  database: vi_dash_production
-  username: vi_dash
+  database: vi_dash_db
+  username: vi_dash_user
   password: <%= ENV["VI_DASH_DATABASE_PASSWORD"] %>
